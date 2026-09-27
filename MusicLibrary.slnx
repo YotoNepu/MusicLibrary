@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="MusicLibrary.Core/MusicLibrary.Core.csproj" />
-  <Project Path="MusicLibrary.Data/MusicLibrary.Data.csproj" />
-  <Project Path="MusicLibrary.WPF/MusicLibrary.WPF.csproj" />
-</Solution>
