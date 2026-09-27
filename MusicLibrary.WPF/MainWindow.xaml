@@ -1,0 +1,157 @@
+﻿<Window x:Class="MusicLibrary.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Музыкальная коллекция"
+        Height="600"
+        Width="900">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Поиск -->
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,10">
+
+            <TextBlock Text="Поиск:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+
+            <TextBox x:Name="SearchTextBox"
+                     Width="200"
+                     Margin="0,0,10,0"
+                     TextChanged="SearchTextBox_TextChanged"/>
+
+            <TextBlock Text="Жанр:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+
+            <ComboBox x:Name="GenreComboBox"
+                      Width="150"
+                      SelectionChanged="GenreComboBox_SelectionChanged"/>
+        </StackPanel>
+
+        <!-- Таблица -->
+        <DataGrid x:Name="MusicDataGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single" SelectionChanged="MusicDataGrid_SelectionChanged">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="ID"
+                                    Binding="{Binding Id}"
+                                    Width="50"/>
+
+                <DataGridTextColumn Header="Исполнитель"
+                                    Binding="{Binding Artist}"
+                                    Width="150"/>
+
+                <DataGridTextColumn Header="Название"
+                                    Binding="{Binding Title}"
+                                    Width="180"/>
+
+                <DataGridTextColumn Header="Альбом"
+                                    Binding="{Binding Album}"
+                                    Width="150"/>
+
+                <DataGridTextColumn Header="Жанр"
+                                    Binding="{Binding Genre}"
+                                    Width="120"/>
+
+                <DataGridTextColumn Header="Год"
+                                    Binding="{Binding Year}"
+                                    Width="70"/>
+
+                <DataGridTextColumn Header="Оценка"
+                                    Binding="{Binding Rating}"
+                                    Width="70"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Добавление -->
+        <Grid Grid.Row="2"
+              Margin="0,10,0,10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="ArtistTextBox"
+                     Grid.Column="0"
+                     Margin="2"
+                     ToolTip="Исполнитель"/>
+
+            <TextBox x:Name="TitleTextBox"
+                     Grid.Column="1"
+                     Margin="2"
+                     ToolTip="Название"/>
+
+            <TextBox x:Name="AlbumTextBox"
+                     Grid.Column="2"
+                     Margin="2"
+                     ToolTip="Альбом"/>
+
+            <TextBox x:Name="GenreTextBox"
+                     Grid.Column="3"
+                     Margin="2"
+                     ToolTip="Жанр"/>
+
+            <TextBox x:Name="YearTextBox"
+                     Grid.Column="4"
+                     Margin="2"
+                     ToolTip="Год"/>
+
+            <TextBox x:Name="RatingTextBox"
+                     Grid.Column="5"
+                     Margin="2"
+                     ToolTip="Оценка"/>
+
+        </Grid>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal">
+
+            <Button Content="Добавить"
+                    Width="100"
+                    Margin="2"
+                    Click="AddButton_Click"/>
+
+            <Button Content="Удалить"
+                    Width="100"
+                    Margin="2"
+                    Click="DeleteButton_Click"/>
+
+            <Button Content="Открыть XML"
+                    Width="110"
+                    Margin="2"
+                    Click="OpenButton_Click"/>
+
+            <Button Content="Сохранить XML"
+                    Width="110"
+                    Margin="2"
+                    Click="SaveButton_Click"/>
+
+            <Button Content="Сохранить TXT"
+                    Width="110"
+                    Margin="2"
+                    Click="SaveTextButton_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
+    
